@@ -29,7 +29,22 @@ class DoublyLinkedList:
             self.length += 1
         return True
 
+    def pop(self):
+        if self.head is None:
+            return None
+        else:
+            temp = self.tail
+            self.tail = temp.prev
+            self.tail.next = None
+            temp.prev = None
+            self.length -= 1
+            return temp.value
+
+
+
+
 my_DLL= DoublyLinkedList(7)
 my_DLL.append(3)
 my_DLL.append(5)
+x = my_DLL.pop()
 my_DLL.print_list()
