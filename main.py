@@ -54,6 +54,23 @@ class DoublyLinkedList:
             self.length +=1
         return True
 
+    def pop_first(self):
+        if self.head is None:
+            return None
+        elif self.length==1:
+            temp = self.head
+            self.head = None
+            self.tail = None
+            self.length = 0
+            return temp.value
+        else:
+            temp = self.head
+            self.head = temp.next
+            self.head.prev = None
+            temp.next = None
+            return temp.value
+
+
 
 
 
@@ -62,4 +79,6 @@ my_DLL.append(3)
 my_DLL.append(5)
 x = my_DLL.pop()
 my_DLL.prepend(1)
+my_DLL.print_list()
+my_DLL.pop_first()
 my_DLL.print_list()
