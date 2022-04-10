@@ -70,8 +70,24 @@ class DoublyLinkedList:
             temp.next = None
             return temp.value
 
+    def get(self, index):
+        if index <0 or index > self.length:
+            return None
+        else:
+            temp = self.head
+            for ind in range(index):
+                temp = temp.next
+            return temp.value
 
-
+    def set(self, index, value):
+        if index < 0 or index >self.length:
+            return None
+        else:
+            temp = self.head
+            for ind in range(index):
+                temp = temp.next
+            temp.value = value
+            return True
 
 
 my_DLL= DoublyLinkedList(7)
@@ -80,5 +96,5 @@ my_DLL.append(5)
 x = my_DLL.pop()
 my_DLL.prepend(1)
 my_DLL.print_list()
-my_DLL.pop_first()
+print(my_DLL.set(0,10))
 my_DLL.print_list()
